@@ -42,6 +42,7 @@ I am a 1st-year MPhil student in AI Thrust at <a href="https://www.hkust-gz.edu.
 
 
 ## News
+- **[2025.07]** <a href="https://arxiv.org/abs/2503.07098" target="_blank">*OmniSAM: Omnidirectional Segment Anything Model for UDA in Panoramic Semantic Segmentation*</a> has been selected as **Highlight** in the **ICCV 2025**!
 - **[2025.06]** <a href="https://arxiv.org/abs/2503.07098" target="_blank">*OmniSAM: Omnidirectional Segment Anything Model for UDA in Panoramic Semantic Segmentation*</a> has been accepted by the **ICCV 2025**!
 - **[2025.06]** <a href="https://arxiv.org/abs/2503.18445" target="_blank">*Benchmarking Multi-modal Semantic Segmentation under Sensor Failures: Missing and Noisy Modality Robustness*</a> has won the **Best Paper Award** in **CVPR Workshop (TMM-OpenWorld) 2025** (top 1 papers)!
 - **[2025.04]** <a href="https://arxiv.org/abs/2503.18445" target="_blank">*Benchmarking Multi-modal Semantic Segmentation under Sensor Failures: Missing and Noisy Modality Robustness*</a> has been accepted by the **CVPR Workshop (TMM-OpenWorld) 2025** as an **Oral Presentation Paper** (top 6 papers)!
