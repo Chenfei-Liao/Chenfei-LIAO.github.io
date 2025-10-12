@@ -37,7 +37,7 @@ I am a 1st-year MPhil student in AI Thrust at <a href="https://www.hkust-gz.edu.
 
 
 ## Services
-- Conference Reviewer of: @ CVPR Workshop (TMM-OpenWorld) 2025, @ ICCV Workshop (MIRA) 2025
+- Conference Reviewer of: @ CVPR Workshop (TMM-OpenWorld) 2025, @ ICCV Workshop (MIRA) 2025, @ ICASSP 2026
 - Journal Reviewer of: @ IEEE Transactions on Circuits and Systems for Video Technology
 
 
