@@ -28,6 +28,7 @@ I am a 2rd-year MPhil student in AI Thrust at <a href="https://www.hkust-gz.edu.
 - <strong>Multi-modal Large Language Model:</strong> balanced MLLM, efficient MLLM
 - <strong>Multi-modal Perception:</strong>  multi-modal semantic segmentation, multi-modal robustness, 360° perception
 
+
 ## Awards
 - **[2024.10]** Outstanding Bachelor's Thesis in Beijing, China
 - **[2021.09]** National Scholarship of China
