@@ -19,7 +19,7 @@ I am a 2rd-year MPhil student in AI Thrust at <a href="https://www.hkust-gz.edu.
 <div style="flex: 1; min-width: 300px;">
       <h2>Visiting & Internship</h2>
     <ul style="list-style: none; padding-left: 0;">
-      <li><i class="fas fa-graduation-cap"></i> <strong>Visiting in SPIC Lab</strong>, Shanghai Jiao Tong University (2025.6 - 2025.9)</li>
+      <li><i class="fas fa-graduation-cap"></i> <strong>Visiting in SPIC Lab</strong>, Shanghai Jiao Tong University (2025.6 - 2025.9) Supervisor: <a href="http://www.zhanglinfeng.tech/index.html" target="_blank">Prof. Linfeng ZHANG @ SJTU</a> </li>
     </ul>
   </div>
 
