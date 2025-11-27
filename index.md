@@ -28,7 +28,6 @@ I am a 2rd-year MPhil student in AI Thrust at <a href="https://www.hkust-gz.edu.
     <ul style="list-style: none; padding-left: 0;">
       <li><strong>Multi-modal Large Language Model:</strong> balanced MLLM, efficient MLLM</li>
       <li><strong>Multi-modal Perception:</strong>  multi-modal semantic segmentation, multi-modal robustness</li>
-      <li><strong>Underground Mine Perception:</strong> semantic segmentation, object detection, key point detection</li>
     </ul>
   </div>
 </div>
