@@ -22,7 +22,7 @@ I am a 2rd-year MPhil student in AI Thrust at <a href="https://www.hkust-gz.edu.
       <li><i class="fas fa-graduation-cap"></i> <strong>Visiting in SPIC Lab</strong>, Shanghai Jiao Tong University (2025.6 - 2025.9) Supervisor: <a href="http://www.zhanglinfeng.tech/index.html" target="_blank">Prof. Linfeng ZHANG @ SJTU</a> </li>
     </ul>
   </div>
-
+</div>
 
 ## Research Interests
 - <strong>Multi-modal Large Language Model:</strong> balanced MLLM, efficient MLLM
