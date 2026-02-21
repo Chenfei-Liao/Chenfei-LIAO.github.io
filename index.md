@@ -43,7 +43,8 @@ I am a 2rd-year MPhil student in AI Thrust at <a href="https://www.hkust-gz.edu.
 
 ## News
 - **[2026.02]** <a href="https://arxiv.org/abs/2512.00891" target="_blank">*Accelerating Streaming Video Understanding via Hierarchical Token Compression*</a> has been accepted by the **CVPR 2026**!
-- **[2025.07]** <a href="https://arxiv.org/abs/2503.07098" target="_blank">*OmniSAM: Omnidirectional Segment Anything Model for UDA in Panoramic Semantic Segmentation*</a> has been selected as **Highlight** in the **ICCV 2025**!
+- **[2025.10]** Our technique report <a href="https://arxiv.org/abs/2510.14359" target="_blank">*AI for Service: Proactive Assistance with AI Glasses*</a> has been released!
+- **[2025.07]** <a href="https://arxiv.org/abs/2503.07098" target="_blank">*OmniSAM: Omnidirectional Segment Anything Model for UDA in Panoramic Semantic Segmentation*</a> has been selected as **Higlight** in the **ICCV 2025**!
 - **[2025.06]** <a href="https://arxiv.org/abs/2503.07098" target="_blank">*OmniSAM: Omnidirectional Segment Anything Model for UDA in Panoramic Semantic Segmentation*</a> has been accepted by the **ICCV 2025**!
 - **[2025.06]** <a href="https://arxiv.org/abs/2503.18445" target="_blank">*Benchmarking Multi-modal Semantic Segmentation under Sensor Failures: Missing and Noisy Modality Robustness*</a> has won the **Best Paper Award** in **CVPR Workshop (TMM-OpenWorld) 2025** (top 1 papers)!
 - **[2025.04]** <a href="https://arxiv.org/abs/2503.18445" target="_blank">*Benchmarking Multi-modal Semantic Segmentation under Sensor Failures: Missing and Noisy Modality Robustness*</a> has been accepted by the **CVPR Workshop (TMM-OpenWorld) 2025** as an **Oral Presentation Paper** (top 6 papers)!
