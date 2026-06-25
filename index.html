@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chenfei Liao — HKUST(GZ)</title>
+  <meta name="description" content="Chenfei Liao, MPhil Student at HKUST(GZ), researching Multi-modal Perception and MLLMs.">
+  <link class="favicon" rel="icon" href="./assets/img/logo_hkust.png" type="image/png">
+  
+  <!-- Google Fonts: Space Grotesk (Tech-chic headings) & Plus Jakarta Sans (Premium clean body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ── Reset & Variables ── */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* Premium Editorial Monochrome Base with a Pop of Electric Cobalt Blue */
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --text-primary: #000000;
+      --text-secondary: #4b5563; /* Dark Gray */
+      --text-tertiary: #9ca3af; /* Medium Gray */
+      --border: #e5e7eb; /* Thin Architectural Border */
+      
+      /* The Pop of Color: Electric Cobalt Blue */
+      --accent: #2563eb; 
+      --accent-hover: #1d4ed8;
+      --accent-light: #eff6ff; /* Soft blue tint */
+      
+      --looking-bg: #f9fafb;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0a0a0a;
+        --surface: #0a0a0a;
+        --text-primary: #ffffff;
+        --text-secondary: #9ca3af;
+        --text-tertiary: #4b5563;
+        --border: #1f2937;
+        
+        /* Dark Mode Electric Blue */
+        --accent: #60a5fa; 
+        --accent-hover: #93c5fd;
+        --accent-light: #1e3a8a;
+        
+        --looking-bg: #111827;
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* ── Typography ── */
+    h1, h2, h3, .section-title, .vertical-nav a, .pub-venue, .badge {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* ── Links ── */
+    a {
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    /* ── App Layout ── */
+    .app-container {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 24px;
+    }
+
+    /* ── Sidebar (Left Column - Sticky) ── */
+    .sidebar {
+      position: sticky;
+      top: 100px;
+      height: calc(100vh - 200px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sidebar-top {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 24px;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+
+    .avatar:hover {
+      transform: scale(1.03);
+    }
+
+    .sidebar h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .sidebar-meta {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .sidebar-meta a {
+      font-weight: 600;
+    }
+
+    /* Status Dot Badge with Accent Pulse */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      background: var(--looking-bg);
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 20px;
+      margin-top: 16px;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.9); opacity: 0.6; box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+      70% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 0 6px rgba(37, 99, 235, 0); }
+      100% { transform: scale(0.9); opacity: 0.6; box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+    }
+
+    /* Vertical Navigation with Accent Hover */
+    .vertical-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 40px 0;
+    }
+
+    .vertical-nav a {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+      transition: var(--transition);
+      padding-left: 0;
+    }
+
+    .vertical-nav a:hover, .vertical-nav a.active {
+      color: var(--accent);
+      padding-left: 12px;
+      border-left: 2px solid var(--accent);
+    }
+
+    /* Sidebar Footer Social Links */
+    .sidebar-footer {
+      display: flex;
+      gap: 16px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .sidebar-footer a {
+      color: var(--text-secondary);
+    }
+
+    .sidebar-footer a:hover {
+      color: var(--accent);
+    }
+
+    /* ── Main Content (Right Column) ── */
+    .content {
+      max-width: 680px;
+    }
+
+    section {
+      padding-top: 40px;
+      margin-bottom: 80px;
+    }
+
+    section:first-of-type {
+      padding-top: 0;
+    }
+
+    .section-title {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-primary);
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--text-primary);
+      padding-bottom: 8px;
+    }
+
+    /* ── About Me ── */
+    .about-text {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    .about-text a {
+      font-weight: 600;
+    }
+
+    .looking-banner {
+      margin-top: 28px;
+      padding: 12px 16px;
+      border-left: 3px solid var(--accent);
+      background: var(--accent-light);
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: 0 8px 8px 0;
+    }
+
+    /* ── Info Grid (Education & Visiting) ── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .info-card h3 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .info-item {
+      padding: 10px 0;
+      border-left: 2px solid var(--border);
+      padding-left: 12px;
+      margin-bottom: 8px;
+      transition: var(--transition);
+    }
+
+    .info-item:hover {
+      border-left-color: var(--accent);
+      background: var(--looking-bg);
+    }
+
+    .info-item strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .info-item span {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      display: block;
+      line-height: 1.4;
+    }
+
+
+    /* ── Sliding / Scroll Containers ── */
+    .scroll-container {
+      overflow-y: auto;
+      border-top: 1px solid var(--text-primary);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    /* Custom thin elegant scrollbar */
+    .scroll-container::-webkit-scrollbar {
+      width: 4px;
+    }
+    .scroll-container::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .scroll-container::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 2px;
+    }
+    .scroll-container::-webkit-scrollbar-thumb:hover {
+      background: var(--text-tertiary);
+    }
+
+    /* ── Publications Section ── */
+    .pub-scroll-container {
+      max-height: 520px;
+      padding: 4px 16px 4px 0;
+    }
+
+    .pub-item-minimal {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pub-item-minimal:last-child {
+      border-bottom: none;
+    }
+
+    .pub-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pub-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 6px;
+      color: var(--text-primary);
+    }
+
+    .pub-title a {
+      color: var(--text-primary);
+    }
+
+    .pub-title a:hover {
+      color: var(--accent);
+    }
+
+    .pub-authors {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .pub-authors .me {
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .pub-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pub-venue {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Accent-colored Badges */
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border: 1px solid var(--border);
+    }
+
+    .badge-best-paper {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    .badge-highlight {
+      background: var(--accent-light);
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .badge-oral {
+      background: var(--looking-bg);
+      color: var(--text-primary);
+      border-color: var(--border);
+    }
+
+    /* ── Awards Section ── */
+    .awards-list {
+      list-style: none;
+    }
+
+    .award-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: 0.95rem;
+    }
+
+    .award-item:last-child {
+      border-bottom: none;
+    }
+
+    .award-title {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .award-date {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Services Section ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    .services-card h3 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .services-list {
+      list-style: none;
+    }
+
+    .services-list li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .services-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--text-tertiary);
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 48px 24px;
+      text-align: center;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-text {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ClustrMaps styling */
+    #clustrmaps-wrap {
+      width: 160px;
+      opacity: 0.75;
+      transition: var(--transition);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    #clustrmaps-wrap:hover {
+      opacity: 1;
+    }
+
+    /* ── Responsive Design ── */
+    @media (max-width: 900px) {
+      .app-container {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 40px 24px;
+      }
+
+      .sidebar {
+        position: relative;
+        top: 0;
+        height: auto;
+        gap: 32px;
+      }
+
+      .vertical-nav {
+        display: none; /* Hide vertical nav on mobile to keep it clean */
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-container">
+
+  <!-- ════════════════ SIDEBAR (LEFT) ════════════════ -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <img class="avatar" src="./assets/img/chenfei.jpg" alt="Chenfei Liao">
+      <h1>Chenfei Liao</h1>
+      <div class="sidebar-meta">
+        M.Phil. Student in AI<br>
+        <a href="https://www.hkust-gz.edu.cn/academics/hubs-and-thrust-areas/information-hub/" target="_blank">HKUST (Guangzhou)</a><br>
+        <span style="font-size: 0.8rem; color: var(--text-tertiary);">cliao127@connect.hkust-gz.edu.cn</span>
+      </div>
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span>Looking for 2027 PhD position</span>
+      </div>
+    </div>
+
+    <!-- Vertical Navigation -->
+    <nav class="vertical-nav">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#publications" class="nav-link">Publications</a>
+      <a href="#awards" class="nav-link">Awards</a>
+      <a href="#services" class="nav-link">Services</a>
+    </nav>
+
+    <!-- Sidebar Footer -->
+    <div class="sidebar-footer">
+      <a href="https://scholar.google.cz/citations?hl=zh-CN&user=2ZlT5o0AAAAJ" target="_blank" rel="noopener">Scholar</a>
+      <a href="https://github.com/Chenfei-Liao" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/chenfei-liao-2bb914356/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </aside>
+
+  <!-- ════════════════ MAIN CONTENT (RIGHT) ════════════════ -->
+  <main class="content">
+
+    <!-- About Me -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-text">
+        <p>
+          I am a 2nd-year M.Phil. student in the <a href="https://www.hkust-gz.edu.cn/academics/hubs-and-thrust-areas/information-hub/" target="_blank">Red Bird Program (Artificial Intelligence)</a> at
+          <a href="https://www.hkust-gz.edu.cn/" target="_blank">the Hong Kong University of Science and Technology (Guangzhou)</a>,
+          under the supervision of
+          <a href="https://xuminghu.github.io/" target="_blank">Prof. Xuming HU</a>
+          and <a href="https://www.cse.ust.hk/~yqsong/" target="_blank">Prof. Yangqiu SONG</a>. My current research interest focuses on the panoramic world, mainly exploring the potential of panoramas to be a new bridge towards real embodied intelligence and world model.
+        </p>
+        <br>
+        <p>
+          I completed my undergraduate studies at
+          <a href="https://www.cumtb.edu.cn/" target="_blank">China University of Mining and Technology (Beijing)</a>
+          under the supervision of
+          <a href="https://scholar.google.cz/citations?user=NKdKU88AAAAJ&hl=zh-CN" target="_blank">Prof. Kehu YANG</a>.
+          I work closely with
+          <a href="https://zhengxujosh.github.io/" target="_blank">Xu ZHENG @ HKUST(GZ)</a>,
+          <a href="http://www.zhanglinfeng.tech/index.html" target="_blank">Prof. Linfeng ZHANG @ SJTU</a>,
+          and  <a href="https://disi.unitn.it/~sebe/" target="_blank">Prof. Nicu Sebe @ UniTrento</a>.
+        </p>
+      </div>
+
+      <div class="info-grid">
+        <!-- Education -->
+        <div class="info-card">
+          <h3>Education</h3>
+          <div class="info-item">
+            <strong>M.Phil. in Artificial Intelligence</strong>
+            <span>The Hong Kong University of Science and Technology (Guangzhou) · 2024.09 – 2026.10<br>
+            Supervisors: <a href="https://xuminghu.github.io/" target="_blank">Prof. Xuming HU</a> &amp; <a href="https://www.cse.ust.hk/~yqsong/" target="_blank">Prof. Yangqiu SONG</a></span>
+          </div>
+          <div class="info-item">
+            <strong>B.S. in Information Engineering</strong>
+            <span>China University of Mining and Technology (Beijing) · 2020.09 – 2024.06<br>
+            Supervisor: <a href="https://scholar.google.cz/citations?user=NKdKU88AAAAJ&hl=zh-CN" target="_blank">Prof. Kehu YANG</a></span>
+          </div>
+        </div>
+        
+        <!-- Visiting & Internship -->
+        <div class="info-card">
+          <h3>Visiting &amp; Internship</h3>
+          <div class="info-item">
+            <strong>Visiting Student, SPIC Lab</strong>
+            <span>Shanghai Jiao Tong University · 2025.06 – 2025.09<br>
+            Advisor: <a href="http://www.zhanglinfeng.tech/index.html" target="_blank">Prof. Linfeng ZHANG</a></span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+      <h2 class="section-title">Selected Publications</h2>
+      <div class="pub-scroll-container scroll-container">
+        <div class="pub-list">
+
+          <!-- ACL 2026 -->
+          <div class="pub-item-minimal">
+            <div class="pub-info">
+              <div class="pub-title">
+                <a href="https://arxiv.org/abs/2510.07143" target="_blank">Are We Using the Right Benchmark: An Evaluation Framework for Visual Token Compression Methods</a>
+              </div>
+              <div class="pub-authors">
+                <span class="me">Chenfei Liao</span>, Wensong Wang, Zichen Wen, Xu Zheng, Yiyu Wang, Haocong He, Yuanhuiyi Lyu, Lutao Jiang, Xin Zou, Yuqian Fu, Bin Ren, Linfeng Zhang, Xuming Hu
+              </div>
+              <div class="pub-meta">
+                <span class="pub-venue">ACL 2026</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panoramic Affordance Prediction (ECCV 2026) -->
+          <div class="pub-item-minimal">
+            <div class="pub-info">
+              <div class="pub-title">
+                <a href="https://arxiv.org/abs/2603.15558" target="_blank">Panoramic Affordance Prediction</a>
+              </div>
+              <div class="pub-authors">
+                Zixin Zhang*, <span class="me">Chenfei Liao*</span>, Hongfei Zhang, Harold Haodong Chen, Kanghao Chen, Zichen Wen, Litao Guo, Bin Ren, Xu Zheng, Yinchuan Li, Xuming Hu, Nicu Sebe, Ying-Cong Chen
+              </div>
+              <div class="pub-meta">
+                <span class="pub-venue">ECCV 2026</span>
+                <span class="badge badge-oral">Co-First</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- OmniCoT (ECCV 2026) -->
+          <div class="pub-item-minimal">
+            <div class="pub-info">
+              <div class="pub-title">
+                <a href="https://huggingface.co/datasets/Eustia1/OmniCoT" target="_blank">OmniCoT: A Benchmark for Global and Multi-Step Panoramic Reasoning</a>
+              </div>
+              <div class="pub-authors">
+                Haocong He*, <span class="me">Chenfei Liao*</span>, Zichen Wen, Zihao Dongfang, Xu Zheng, Bin Ren, Chang Su, Zixin Zhang, Harold Haodong Chen, Hongfei Zhang, Weijia Li, Kailun Yang, Conghui He, Xuming Hu, Nicu Sebe, Linfeng Zhang
+              </div>
+              <div class="pub-meta">
+                <span class="pub-venue">ECCV 2026</span>
+                <span class="badge badge-highlight">Co-First &amp; Project Lead</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- RBen (CVPRW 2025 Best Paper) -->
+          <div class="pub-item-minimal">
+            <div class="pub-info">
+              <div class="pub-title">
+                <a href="https://arxiv.org/abs/2503.18445" target="_blank">Benchmarking Multi-modal Semantic Segmentation under Sensor Failures: Missing and Noisy Modality Robustness</a>
+              </div>
+              <div class="pub-authors">
+                <span class="me">Chenfei Liao*</span>, Kaiyu Lei*, Xu Zheng, Junha Moon, Zhixiong Wang, Yixuan Wang, Danda Pani Paudel, Luc Van Gool, Xuming Hu
+              </div>
+              <div class="pub-meta">
+                <span class="pub-venue">CVPR Workshop (TMM-OpenWorld) 2025</span>
+                <span class="badge badge-best-paper">Best Paper Award</span>
+                <span class="badge badge-oral">Oral</span>
+                <span class="badge badge-highlight">Co-First &amp; Project Lead</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- DVD (ICMLW 2026 Spotlight) -->
+          <div class="pub-item-minimal">
+            <div class="pub-info">
+              <div class="pub-title">
+                <a href="https://arxiv.org/abs/2603.12250" target="_blank">DVD: Deterministic Video Depth Estimation with Generative Priors</a>
+              </div>
+              <div class="pub-authors">
+                Hongfei Zhang*, Harold Haodong Chen*, <span class="me">Chenfei Liao*</span>, Jing He*, Zixin Zhang, Haodong Li, Yihao Liang, Kanghao Chen, Bin Ren, Xu Zheng, Shuai Yang, Kun Zhou, Yinchuan Li, Nicu Sebe, Ying-Cong Chen
+              </div>
+              <div class="pub-meta">
+                <span class="pub-venue">ICML Workshop (Foundations of Deep Generative Models) 2026</span>
+                <span class="badge badge-highlight">Spotlight</span>
+                <span class="badge badge-oral">Co-First</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modality Bias (ICLRW 2026) -->
+          <div class="pub-item-minimal">
+            <div class="pub-info">
+              <div class="pub-title">
+                <a href="https://arxiv.org/abs/2505.18657" target="_blank">MLLMs are Deeply Affected by Modality Bias</a>
+              </div>
+              <div class="pub-authors">
+                XuZheng*, <span class="me">Chenfei Liao*</span>, Yuqian Fu, Kaiyu Lei, Yuanhuiyi Lyu, Lutao Jiang, Bin Ren, Jialei Chen, Jiawen Wang, Chengxin Li, Linfeng Zhang, Danda Pani Paudel, Xuanjing Huang, Yu-Gang Jiang, Nicu Sebe, Dacheng Tao, Luc Van Gool, Xuming Hu
+              </div>
+              <div class="pub-meta">
+                <span class="pub-venue">ICLR Workshop (MM-Intelligence) 2026</span>
+                <span class="badge badge-oral">Co-First</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- MemorySAM (ArXiv 2025) -->
+          <div class="pub-item-minimal">
+            <div class="pub-info">
+              <div class="pub-title">
+                <a href="https://arxiv.org/abs/2503.06700" target="_blank">MemorySAM: Memorize Modalities and Semantics with Segment Anything Model 2 for Multi-modal Semantic Segmentation</a>
+              </div>
+              <div class="pub-authors">
+                <span class="me">Chenfei Liao</span>, Xu Zheng, Yuanhuiyi Lyu, Haiwei Xue, Yihong Cao, Jiawen Wang, Kailun Yang, Xuming Hu
+              </div>
+              <div class="pub-meta">
+                <span class="pub-venue">ArXiv 2025</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI for Service (Tech Report 2025) -->
+          <div class="pub-item-minimal">
+            <div class="pub-info">
+              <div class="pub-title">
+                <a href="https://arxiv.org/abs/2510.14359" target="_blank">AI for Service: Proactive Assistance with AI Glasses</a>
+              </div>
+              <div class="pub-authors">
+                Zichen Wen*, Yiyu Wang*, <span class="me">Chenfei Liao*</span>, Boxue Yang*, Junxian Li*, Weifeng Liu*, Haocong He, Bolong Feng, Xuyang Liu, Yuanhuiyi Lyu, Xu Zheng, Xuming Hu, Linfeng Zhang
+              </div>
+              <div class="pub-meta">
+                <span class="pub-venue">Tech Report 2025</span>
+                <span class="badge badge-oral">Co-First</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Awards -->
+    <section id="awards">
+      <h2 class="section-title">Awards</h2>
+      <div class="awards-list">
+        <!-- Award 1 -->
+        <div class="award-item">
+          <div class="award-title">Lizhi Scholarship (Industry Scholarship from Lizhi Inc.)</div>
+          <div class="award-date">2026</div>
+        </div>
+        <!-- Award 2 -->
+        <div class="award-item">
+          <div class="award-title">Outstanding Bachelor's Thesis in Beijing, China</div>
+          <div class="award-date">2024</div>
+        </div>
+        <!-- Award 3 -->
+        <div class="award-item">
+          <div class="award-title">National Scholarship of China</div>
+          <div class="award-date">2021</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <h2 class="section-title">Academic Services</h2>
+      <div class="services-grid">
+        <!-- Conference Reviewer -->
+        <div class="services-card">
+          <h3>Conference Reviewer</h3>
+          <ul class="services-list">
+            <li>CVPR Workshop (TMM-OpenWorld) 2025</li>
+            <li>ICCV Workshop (MIRA) 2025</li>
+            <li>ICASSP 2026</li>
+            <li>ICME 2026</li>
+            <li>ICLR Workshop (MM-Intelligence) 2026</li>
+            <li>IJCNN 2027</li>
+          </ul>
+        </div>
+        <!-- Journal Reviewer -->
+        <div class="services-card">
+          <h3>Journal Reviewer</h3>
+          <ul class="services-list">
+            <li>IEEE Transactions on Circuits and Systems for Video Technology (TCSVT)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</div>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-text">
+      &copy; 2026 Chenfei Liao · Designed for Elegance &amp; Speed
+    </div>
+    <div id="clustrmaps-wrap">
+      <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=pMSmAjapdT7VLa673U-a0_siU3CVYB2defjHBVYgXks"></script>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════ SCRIPTS ════════════════ -->
+<script>
+  // Smooth scroll highlight for navigation
+  (function() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.vertical-nav a');
+    
+    function updateActiveNav() {
+      const scrollPosition = window.scrollY + 150; // Offset for spacing
+      let activeSectionId = '';
+      
+      // Check if we are at the bottom of the page
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+        activeSectionId = sections[sections.length - 1].id;
+      } else {
+        sections.forEach(section => {
+          if (scrollPosition >= section.offsetTop) {
+            activeSectionId = section.id;
+          }
+        });
+      }
+      
+      if (activeSectionId) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${activeSectionId}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    }
+    
+    window.addEventListener('scroll', updateActiveNav);
+    window.addEventListener('resize', updateActiveNav);
+    updateActiveNav(); // Initial call
+  })();
+</script>
+
+</body>
+</html>
