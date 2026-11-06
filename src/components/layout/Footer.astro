@@ -1,0 +1,21 @@
+---
+import { siteConfig } from "@/site.config";
+
+const year = new Date().getFullYear();
+---
+
+<footer
+	id="site-footer"
+	class="mt-auto flex w-full flex-col items-center justify-center gap-y-4 pt-16 pb-4 text-center align-top font-semibold text-gray-600 sm:flex-row sm:justify-between sm:text-xs dark:text-gray-400"
+>
+	<div class="me-0 sm:me-4">
+		Copyright&nbsp;&copy;&nbsp;{year},&nbsp;{siteConfig.author}.<span class="inline-block">&nbsp;Built with <a class="typefolio-link" href="https://astro.build" target="_blank" rel="noreferrer noopener">Astro</a> &amp; <a class="typefolio-link" href="https://github.com/whliao5am/astro-theme-typefolio" target="_blank" rel="noreferrer noopener">Typefolio</a>.</span>
+	</div>
+	<div class="w-32 opacity-75 transition-opacity hover:opacity-100" id="clustrmaps-wrap" transition:persist>
+		<script
+			is:inline
+			type="text/javascript"
+			id="clustrmaps"
+			src="//clustrmaps.com/map_v2.js?d=pMSmAjapdT7VLa673U-a0_siU3CVYB2defjHBVYgXks"></script>
+	</div>
+</footer>

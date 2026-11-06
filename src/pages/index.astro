@@ -1,0 +1,603 @@
+---
+import { Image } from "astro:assets";
+import type { WhatsNewItem } from "@/components/home/WhatsNewTimeline.astro";
+import WhatsNewTimeline from "@/components/home/WhatsNewTimeline.astro";
+import InlineIconLink from "@/components/InlineIconLink.astro";
+import PageLayout from "@/layouts/Base.astro";
+
+const ME = "Chenfei Liao";
+const VISIBLE_AUTHORS = 5;
+const isMe = (author: string) => author.replace(/[*†]/g, "") === ME;
+
+type Link = { href: string; label: string };
+
+type Publication = {
+	id: string;
+	authors: string[];
+	title: string;
+	venue: string;
+	year: string;
+	badges?: string[];
+	links: Link[];
+};
+
+type TimelineEntry = {
+	org: string;
+	orgHref?: string;
+	role: string;
+	date: string;
+	location: string;
+	notes?: string[];
+};
+
+const socialLinks = [
+	{
+		href: "https://scholar.google.cz/citations?hl=zh-CN&user=2ZlT5o0AAAAJ",
+		icon: "mdi:school",
+		label: "Google Scholar",
+	},
+	{ href: "https://github.com/Chenfei-Liao", icon: "mdi:github", label: "GitHub" },
+	{
+		href: "https://www.linkedin.com/in/chenfei-liao-2bb914356/",
+		icon: "mdi:linkedin",
+		label: "LinkedIn",
+	},
+	{ href: "mailto:cliao127@connect.hkust-gz.edu.cn", icon: "mdi:email-outline", label: "Email" },
+	{ href: "/Chenfei's_Resume.pdf", icon: "mdi:file-account-outline", label: "CV" },
+];
+
+const education: TimelineEntry[] = [
+	{
+		org: "The Hong Kong University of Science and Technology (Guangzhou)",
+		orgHref: "https://www.hkust-gz.edu.cn/",
+		role: "M.Phil. in Red Bird Program (Artificial Intelligence), supervised by Prof. Xuming Hu & Prof. Yangqiu Song",
+		date: "Sep. 2024 – Oct. 2026",
+		location: "Guangzhou, China",
+		notes: ["Lizhi Innovative Talent Scholarship (Top 3 in HKUST(GZ))"],
+	},
+	{
+		org: "China University of Mining and Technology (Beijing)",
+		orgHref: "https://www.cumtb.edu.cn/",
+		role: "B.S. in Information Engineering, supervised by Prof. Kehu Yang",
+		date: "Sep. 2020 – Jun. 2024",
+		location: "Beijing, China",
+		notes: ["GPA: 3.83/4.00, National Scholarship of China (Top 1%)"],
+	},
+];
+
+const experience: TimelineEntry[] = [
+	{
+		org: "King Abdullah University of Science and Technology",
+		orgHref: "https://www.kaust.edu.sa/en/",
+		role: "Research Intern, advised by Prof. Mohamed Elhoseiny",
+		date: "Jul. 2026 – Present",
+		location: "Remote",
+	},
+	{
+		org: "Shanghai Jiao Tong University",
+		orgHref: "https://www.sjtu.edu.cn/",
+		role: "Research Intern, advised by Prof. Linfeng Zhang",
+		date: "Jun. 2025 – Sep. 2025",
+		location: "Shanghai, China",
+	},
+];
+
+const whatsNewItems: WhatsNewItem[] = [
+	{
+		date: "Jul 2026",
+		kind: "milestone",
+		label: "Experience",
+		description:
+			"Started a remote research internship at KAUST with Prof. Mohamed Elhoseiny.",
+	},
+	{
+		date: "2026",
+		kind: "paper",
+		label: "Paper",
+		description:
+			"Two papers accepted to ECCV 2026: OmniCoT and Panoramic Affordance Prediction.",
+		href: "#publications",
+	},
+	{
+		date: "2026",
+		kind: "paper",
+		label: "Paper",
+		description:
+			"DVD accepted to the ICML 2026 Workshop on Foundations of Deep Generative Models as a Spotlight.",
+		href: "https://arxiv.org/abs/2603.12250",
+	},
+	{
+		date: "2026",
+		kind: "paper",
+		label: "Paper",
+		description:
+			"VTC-Bench (Are We Using the Right Benchmark?) accepted to the ACL 2026 Main Conference.",
+		href: "https://arxiv.org/abs/2510.07143",
+	},
+	{
+		date: "2026",
+		kind: "award",
+		label: "Award",
+		description: "Received the Lizhi Innovative Talent Scholarship (Top 3 in HKUST(GZ)).",
+	},
+	{
+		date: "2025",
+		kind: "award",
+		label: "Award",
+		description:
+			"Our multi-modal segmentation robustness benchmark received the Best Paper Award at the CVPR 2025 TMM-OpenWorld Workshop.",
+		href: "https://arxiv.org/abs/2503.18445",
+	},
+];
+
+const publications: Publication[] = [
+	{
+		id: "C.1",
+		authors: [
+			"Chenfei Liao",
+			"Wensong Wang",
+			"Zichen Wen",
+			"Xu Zheng",
+			"Yiyu Wang",
+			"Haocong He",
+			"Yuanhuiyi Lyu",
+			"Lutao Jiang",
+			"Xin Zou",
+			"Yuqian Fu",
+			"Bin Ren",
+			"Linfeng Zhang",
+			"Xuming Hu",
+		],
+		title:
+			"Are We Using the Right Benchmark: An Evaluation Framework for Visual Token Compression Methods",
+		venue: "ACL Main",
+		year: "2026",
+		links: [{ href: "https://arxiv.org/abs/2510.07143", label: "paper" }],
+	},
+	{
+		id: "C.2",
+		authors: [
+			"Zixin Zhang*",
+			"Chenfei Liao*",
+			"Hongfei Zhang",
+			"Harold Haodong Chen",
+			"Kanghao Chen",
+			"Zichen Wen",
+			"Litao Guo",
+			"Bin Ren",
+			"Xu Zheng",
+			"Yinchuan Li",
+			"Xuming Hu",
+			"Nicu Sebe",
+			"Ying-Cong Chen",
+		],
+		title: "Panoramic Affordance Prediction",
+		venue: "ECCV",
+		year: "2026",
+		links: [{ href: "https://arxiv.org/abs/2603.15558", label: "paper" }],
+	},
+	{
+		id: "C.3",
+		authors: [
+			"Haocong He*",
+			"Chenfei Liao*†",
+			"Zichen Wen",
+			"Zihao Dongfang",
+			"Xu Zheng",
+			"Bin Ren",
+			"Chang Su",
+			"Zixin Zhang",
+			"Harold Haodong Chen",
+			"Hongfei Zhang",
+			"Weijia Li",
+			"Kailun Yang",
+			"Conghui He",
+			"Xuming Hu",
+			"Nicu Sebe",
+			"Linfeng Zhang",
+		],
+		title: "OmniCoT: A Benchmark for Global and Multi-Step Panoramic Reasoning",
+		venue: "ECCV",
+		year: "2026",
+		links: [
+			{ href: "https://arxiv.org/abs/2606.30378", label: "paper" },
+			{ href: "https://huggingface.co/datasets/Eustia1/OmniCoT", label: "data" },
+		],
+	},
+	{
+		id: "C.4",
+		authors: [
+			"Chenfei Liao*†",
+			"Kaiyu Lei*",
+			"Xu Zheng",
+			"Junha Moon",
+			"Zhixiong Wang",
+			"Yixuan Wang",
+			"Danda Pani Paudel",
+			"Luc Van Gool",
+			"Xuming Hu",
+		],
+		title:
+			"Benchmarking Multi-modal Semantic Segmentation under Sensor Failures: Missing and Noisy Modality Robustness",
+		venue: "CVPR Workshop: TMM-OpenWorld",
+		year: "2025",
+		badges: ["Best Paper Award", "Oral"],
+		links: [{ href: "https://arxiv.org/abs/2503.18445", label: "paper" }],
+	},
+	{
+		id: "C.5",
+		authors: [
+			"Hongfei Zhang*",
+			"Harold Haodong Chen*",
+			"Chenfei Liao*",
+			"Jing He*",
+			"Zixin Zhang",
+			"Haodong Li",
+			"Yihao Liang",
+			"Kanghao Chen",
+			"Bin Ren",
+			"Xu Zheng",
+			"Shuai Yang",
+			"Kun Zhou",
+			"Yinchuan Li",
+			"Nicu Sebe",
+			"Ying-Cong Chen",
+		],
+		title: "DVD: Deterministic Video Depth Estimation with Generative Priors",
+		venue: "ICML Workshop: Foundations of Deep Generative Models",
+		year: "2026",
+		badges: ["Spotlight", "300+ GitHub Stars"],
+		links: [{ href: "https://arxiv.org/abs/2603.12250", label: "paper" }],
+	},
+	{
+		id: "C.6",
+		authors: [
+			"Xu Zheng*",
+			"Chenfei Liao*",
+			"Yuqian Fu",
+			"Kaiyu Lei",
+			"Yuanhuiyi Lyu",
+			"Lutao Jiang",
+			"Bin Ren",
+			"Jialei Chen",
+			"Jiawen Wang",
+			"Chengxin Li",
+			"Linfeng Zhang",
+			"Danda Pani Paudel",
+			"Xuanjing Huang",
+			"Yu-Gang Jiang",
+			"Nicu Sebe",
+			"Dacheng Tao",
+			"Luc Van Gool",
+			"Xuming Hu",
+		],
+		title: "MLLMs are Deeply Affected by Modality Bias",
+		venue: "ICLR Workshop: MM-Intelligence",
+		year: "2026",
+		links: [{ href: "https://arxiv.org/abs/2505.18657", label: "paper" }],
+	},
+	{
+		id: "P.1",
+		authors: [
+			"Chenfei Liao",
+			"Xu Zheng",
+			"Yuanhuiyi Lyu",
+			"Haiwei Xue",
+			"Yihong Cao",
+			"Jiawen Wang",
+			"Kailun Yang",
+			"Xuming Hu",
+		],
+		title:
+			"MemorySAM: Memorize Modalities and Semantics with Segment Anything Model 2 for Multi-modal Semantic Segmentation",
+		venue: "arXiv",
+		year: "2025",
+		links: [{ href: "https://arxiv.org/abs/2503.06700", label: "paper" }],
+	},
+	{
+		id: "T.1",
+		authors: [
+			"Zichen Wen*",
+			"Yiyu Wang*",
+			"Chenfei Liao*",
+			"Boxue Yang*",
+			"Junxian Li*",
+			"Weifeng Liu*",
+			"Haocong He",
+			"Bolong Feng",
+			"Xuyang Liu",
+			"Yuanhuiyi Lyu",
+			"Xu Zheng",
+			"Xuming Hu",
+			"Linfeng Zhang",
+		],
+		title: "AI for Service: Proactive Assistance with AI Glasses",
+		venue: "Technical Report",
+		year: "2025",
+		links: [{ href: "https://arxiv.org/abs/2510.14359", label: "paper" }],
+	},
+];
+
+const awards = [
+	{ title: "Lizhi Innovative Talent Scholarship (Top 3 in HKUST(GZ))", year: "2026" },
+	{ title: "Outstanding Bachelor's Thesis in Beijing, China", year: "2024" },
+	{ title: "National Scholarship of China (Top 1%)", year: "2021" },
+];
+
+const services = [
+	{
+		title: "Conference Reviewer",
+		items: [
+			"CVPR Workshop (TMM-OpenWorld) 2025",
+			"ICCV Workshop (MIRA) 2025",
+			"ICASSP 2026",
+			"ICME 2026",
+			"ICLR Workshop (MM-Intelligence) 2026",
+			"IJCNN 2027",
+			"ICASSP 2027",
+			"ACL Rolling Review (ARR) October 2026",
+		],
+	},
+	{
+		title: "Journal Reviewer",
+		items: [
+			"IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)",
+			"IEEE Transactions on Image Processing (TIP)",
+			"IEEE Transactions on Circuits and Systems for Video Technology (TCSVT)",
+			"IEEE Transactions on Robot Learning (T-RL)",
+		],
+	},
+];
+---
+
+<PageLayout meta={{ title: "Home" }}>
+	<section class="index-content" id="about">
+		<div class="flex items-center gap-4">
+			<Image
+				priority
+				alt="Portrait of Chenfei Liao"
+				class="h-20 w-20 shrink-0 rounded-full object-cover"
+				height={320}
+				src="/assets/chenfei.jpg"
+				width={320}
+			/>
+			<div>
+				<h1 class="text-accent-2 text-xl font-semibold wrap-break-word">Chenfei Liao</h1>
+				<div>M.Phil. Student in Artificial Intelligence</div>
+				<div>The Hong Kong University of Science and Technology (Guangzhou)</div>
+				<div class="text-gray-600 dark:text-gray-400">cliao127@connect.hkust-gz.edu.cn</div>
+			</div>
+		</div>
+		<hr class="index-divider mt-4" />
+		<div class="mt-4">
+			<p>
+				I am an M.Phil. student in the
+				<a
+					class="typefolio-link-lighter"
+					href="https://www.hkust-gz.edu.cn/academics/hubs-and-thrust-areas/information-hub/"
+					target="_blank">Red Bird Program (Artificial Intelligence)</a
+				>
+				at
+				<a class="typefolio-link-lighter" href="https://www.hkust-gz.edu.cn/" target="_blank"
+					>the Hong Kong University of Science and Technology (Guangzhou)</a
+				>, supervised by
+				<a class="typefolio-link-lighter" href="https://xuminghu.github.io/" target="_blank"
+					>Prof. Xuming Hu</a
+				>
+				and
+				<a class="typefolio-link-lighter" href="https://www.cse.ust.hk/~yqsong/" target="_blank"
+					>Prof. Yangqiu Song</a
+				>. I am currently a remote research intern at
+				<a class="typefolio-link-lighter" href="https://www.kaust.edu.sa/en/" target="_blank"
+					>KAUST</a
+				>
+				with
+				<a class="typefolio-link-lighter" href="https://www.mohamed-elhoseiny.com/" target="_blank"
+					>Prof. Mohamed Elhoseiny</a
+				>.
+			</p>
+			<p>
+				My research focuses on the panoramic world, exploring the potential of panoramas as a new
+				bridge towards real embodied intelligence and world models. I also work on robust
+				multi-modal perception and efficient MLLMs. I work closely with
+				<a class="typefolio-link-lighter" href="https://zhengxujosh.github.io/" target="_blank"
+					>Prof. Xu Zheng</a
+				>
+				(GBU),
+				<a
+					class="typefolio-link-lighter"
+					href="http://www.zhanglinfeng.tech/index.html"
+					target="_blank">Prof. Linfeng Zhang</a
+				>
+				(SJTU), and
+				<a class="typefolio-link-lighter" href="https://disi.unitn.it/~sebe/" target="_blank"
+					>Prof. Nicu Sebe</a
+				>
+				(UniTrento).
+			</p>
+			<p class="text-accent font-semibold">I am looking for a PhD position starting in 2027.</p>
+			<p class="flex flex-wrap items-center gap-x-1">
+				<span class="me-1">Find me on</span>
+				{
+					socialLinks.map((link) => (
+						<InlineIconLink
+							href={link.href}
+							icon={link.icon}
+							label={link.label}
+							title={link.label}
+							width="1.75em"
+							height="1.75em"
+							target="_blank"
+						/>
+					))
+				}
+			</p>
+		</div>
+	</section>
+
+	<WhatsNewTimeline items={whatsNewItems} />
+
+	<section class="mt-8" id="publications">
+		<h2 class="title mb-1 text-xl">Selected Publications</h2>
+		<p class="mb-4 text-xs text-gray-600 dark:text-gray-400">
+			C = Conference, P = Preprint, T = Technical Report, * = Equal Contribution, † = Project Lead
+		</p>
+		<div class="space-y-2">
+			{
+				publications.map((pub) => (
+					<p data-pub>
+						[{pub.id}]{" "}
+						{pub.authors.slice(0, VISIBLE_AUTHORS).map((author, i) => (
+							<>
+								{i > 0 ? ", " : ""}
+								{isMe(author) ? <span class="font-semibold">{author}</span> : author}
+							</>
+						))}{pub.authors.length > VISIBLE_AUTHORS && (
+							<><span class="hidden" data-pub-more>{pub.authors.slice(VISIBLE_AUTHORS).map((author) => (
+										<>
+											{", "}
+											{isMe(author) ? <span class="font-semibold">{author}</span> : author}
+										</>
+									))}
+								</span>
+								<button
+									aria-expanded="false"
+									class="text-accent ms-1 cursor-pointer text-xs font-semibold hover:underline"
+									data-collapsed-label={`… +${pub.authors.length - VISIBLE_AUTHORS} more`}
+									data-expanded-label="show less"
+									data-pub-toggle
+									type="button"
+								>
+									… +{pub.authors.length - VISIBLE_AUTHORS} more
+								</button></>
+						)}{`, "${pub.title}," in `}
+						<em>{pub.venue}</em>, {pub.year}.
+						{pub.badges?.map((badge) => (
+							<span class="text-accent ms-1 text-xs font-semibold">[{badge}]</span>
+						))}
+						{pub.links.map((link) => (
+							<a class="typefolio-link-lighter ms-1 font-medium" href={link.href} target="_blank">
+								[{link.label}]
+							</a>
+						))}
+					</p>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="mt-8" id="education">
+		<h2 class="title mb-4 text-xl">Education</h2>
+		<ul class="space-y-3" role="list">
+			{
+				education.map((entry) => (
+					<li>
+						<div class="flex flex-wrap items-baseline justify-between gap-x-4">
+							<span class="text-accent-2 font-semibold">
+								{entry.orgHref ? (
+									<a class="typefolio-link-lighter" href={entry.orgHref} target="_blank">
+										{entry.org}
+									</a>
+								) : (
+									entry.org
+								)}
+							</span>
+							<span class="text-xs font-semibold text-gray-600 dark:text-gray-400">{entry.date}</span>
+						</div>
+						<div class="flex flex-wrap items-baseline justify-between gap-x-4">
+							<span>{entry.role}</span>
+							<span class="text-xs text-gray-600 dark:text-gray-400">{entry.location}</span>
+						</div>
+						{entry.notes?.map((note) => (
+							<div class="text-gray-600 dark:text-gray-400">· {note}</div>
+						))}
+					</li>
+				))
+			}
+		</ul>
+	</section>
+
+	<section class="mt-8" id="experience">
+		<h2 class="title mb-4 text-xl">Experience</h2>
+		<ul class="space-y-3" role="list">
+			{
+				experience.map((entry) => (
+					<li>
+						<div class="flex flex-wrap items-baseline justify-between gap-x-4">
+							<span class="text-accent-2 font-semibold">
+								{entry.orgHref ? (
+									<a class="typefolio-link-lighter" href={entry.orgHref} target="_blank">
+										{entry.org}
+									</a>
+								) : (
+									entry.org
+								)}
+							</span>
+							<span class="text-xs font-semibold text-gray-600 dark:text-gray-400">{entry.date}</span>
+						</div>
+						<div class="flex flex-wrap items-baseline justify-between gap-x-4">
+							<span>{entry.role}</span>
+							<span class="text-xs text-gray-600 dark:text-gray-400">{entry.location}</span>
+						</div>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+
+	<section class="mt-8" id="awards">
+		<h2 class="title mb-4 text-xl">Awards</h2>
+		<ul class="space-y-1" role="list">
+			{
+				awards.map((award) => (
+					<li class="grid grid-cols-[3.5rem_minmax(0,1fr)]">
+						<span class="font-semibold text-gray-600 dark:text-gray-400">{award.year}</span>
+						<span>{award.title}</span>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+
+	<section class="index-content mt-8" id="services">
+		<h2 class="title mb-4 text-xl">Academic Services</h2>
+		{
+			services.map((group) => (
+				<div class="mb-3">
+					<div class="text-accent-2 font-semibold">{group.title}</div>
+					<ul class="list-disc" role="list">
+						{group.items.map((item) => (
+							<li>{item}</li>
+						))}
+					</ul>
+				</div>
+			))
+		}
+	</section>
+
+	<script>
+		declare global {
+			interface Window {
+				__pubToggleBound?: boolean;
+			}
+		}
+
+		if (!window.__pubToggleBound) {
+			window.__pubToggleBound = true;
+			document.addEventListener("click", (event) => {
+				if (!(event.target instanceof Element)) return;
+				const button = event.target.closest<HTMLButtonElement>("[data-pub-toggle]");
+				if (!button) return;
+
+				const more = button.closest("[data-pub]")?.querySelector("[data-pub-more]");
+				if (!more) return;
+
+				const expanded = button.getAttribute("aria-expanded") === "true";
+				more.classList.toggle("hidden", expanded);
+				button.setAttribute("aria-expanded", String(!expanded));
+				button.textContent =
+					(expanded ? button.dataset.collapsedLabel : button.dataset.expandedLabel) ?? "";
+			});
+		}
+	</script>
+</PageLayout>
